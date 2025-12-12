@@ -1,0 +1,92 @@
+body { background:#f5f8f5; margin:0; font-family:Arial; }
+
+.main-section {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 30px;
+  padding: 40px;
+}
+.box {
+  background:white;
+  border-radius:12px;
+  padding:25px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+}
+
+.option-btn {
+  background:#fff;
+  border:1px solid #ccc;
+  border-radius:20px;
+  padding:8px 18px;
+  margin:4px;
+  cursor:pointer;
+}
+.option-btn.selected {
+  background:#2b8a3e;
+  color:white;
+}
+
+canvas {
+  background:white;
+  padding:15px;
+  border-radius:12px;
+  margin-top:20px;
+}
+
+.top-bar {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:15px 40px; background:white; border-bottom:1px solid #eee;
+}
+.nav-bar {
+  display:flex; justify-content:center; gap:25px;
+  background:white; padding:15px 0;
+}
+.dropdown { position:relative; }
+.dropdown-content {
+  display:none;
+  position:absolute;
+  background:#264a7a;
+  padding:12px;
+  border-radius:8px;
+  top:45px;
+  width:150px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.15);
+}
+.dropdown-content a {
+  color:white;
+  text-decoration:none;
+  display:block;
+  padding:6px 0;
+}
+ .nav-bar .nav-btn {
+      background:#cf4036;
+      padding:8px 18px;
+      border-radius:20px; 
+      text-decoration:none;
+      color:white;
+      font-weight:bold;
+    }
+     .btn {
+      background:#cf4036;
+      color:white;
+      padding:10px 20px;
+      border-radius:25px;
+      text-decoration:none;
+      font-weight:bold;
+      cursor:pointer;
+      display:inline-block;
+      white-space:nowrap;
+    }
+
+.dropdown:hover .dropdown-content { display:block; }
+.nav-bar a { text-decoration:none; color:black; padding:8px 12px; }
+.nav-btn { background:#cf4036; color:white; border-radius:8px; padding:8px 12px; }
+.search-bar { padding:6px 12px; border-radius:8px; border:1px solid #ccc; width:240px; }
+
+.footer {
+  background:#1f355a; color:white; padding:40px 40px 25px; margin-top:80px;
+}
+.footer-content { display:flex; justify-content:space-around; flex-wrap:wrap; }
+.footer-content a { color:#ddd; text-decoration:none; display:block; margin:4px 0; }
+.footer-content a:hover { color:white; }
+.copyright { text-align:center; opacity:0.7; margin-top:20px; }

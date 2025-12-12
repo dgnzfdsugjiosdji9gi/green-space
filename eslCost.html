@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Estimator</title>
+    <link rel="stylesheet" href="eslCost.css">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo"><img src="green space.png" alt="edusn" height="60px"></div>
+        <div class="buttons">
+            <div class="dropdown">
+                <span class="dropdown-btn btn">Link Collection ▾</span>
+                <div class="dropdown-content">
+                    <a href="supplier.html">Supplier</a>
+                    <a href="result.html">Result</a>
+                    <a href="eslCost.html">Cost Estimator</a>
+                </div>
+            </div>
+            <a href="calculator.html" class="btn">Calculator</a>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="survey.html">Survey</a>
+        <a href="SignUp.html" class="nav-btn">Sign In</a>
+        <input type="text" class="search-bar" placeholder="Search...">
+    </nav>
+<br><br><br><br><br>
+    <div class="container">
+        <h2>Cost Estimation Planner</h2>
+
+        <div class="box">
+            <strong>Estimated Total Cost: <span id="totalCost">0</span> MMK</strong>
+            <p>Add your cost items:</p>
+            
+            <div class="add-item">
+                <input type="text" id="itemName" placeholder="Item name">
+                <input type="number" id="itemCost" placeholder="Cost in MMK" min="0">
+                <button id="addBtn">Add Item</button>
+            </div>
+            
+            <table id="costTable">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Cost (MMK)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Items will be added here -->
+                </tbody>
+            </table>
+            
+            <p style="font-size: 14px; color: #666; margin-top: 10px; margin-left: 77px;">
+                Start by adding items above. The total will update automatically.
+            </p>
+        </div>
+
+        <label>Your Available Budget</label>
+        <input type="number" id="budgetInput" placeholder="Enter your budget" min="0">
+        <button id="compareBtn">Compare with Estimate</button>
+
+        <div class="note" id="resultNote">
+        Your budget will appear here! 
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Green Space</h3>
+                <p>The purpose of our project is to help revitalize our local park while promoting environmental conservation</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="about us.css">About Us</a>
+                <a href="#">References</a>
+                <a href="#">Our School</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>635J Yoma Avenue Street, Yangon</p>
+                <p>+95793333550</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 EDUSN Kamaryut campus year-9
+        </div>
+    </footer>
+
+    <script>
+
+        const itemNameInput = document.getElementById('itemName');
+        const itemCostInput = document.getElementById('itemCost');
+        const addBtn = document.getElementById('addBtn');
+        const costTable = document.getElementById('costTable').getElementsByTagName('tbody')[0];
+        const totalCostDisplay = document.getElementById('totalCost');
+        const budgetInput = document.getElementById('budgetInput');
+        const compareBtn = document.getElementById('compareBtn');
+        const resultNote = document.getElementById('resultNote');
+
+
+        let items = [];
+
+      
+        function addItem(name, cost) {
+            if (!name || !cost) {
+                alert('Please enter both item name and cost');
+                return;
+            }
+
+            const item = {
+                name: name,
+                cost: Number(cost),
+                id: Date.now() 
+            };
+
+            items.push(item);
+            updateTable();
+            updateTotal();
+            clearInputs();
+        }
+
+        function removeItem(id) {
+            items = items.filter(item => item.id !== id);
+            updateTable();
+            updateTotal();
+        }
+
+
+        function updateTable() {
+            costTable.innerHTML = '';
+            
+            if (items.length === 0) {
+                const row = costTable.insertRow();
+                const cell = row.insertCell();
+                cell.colSpan = 3;
+                cell.textContent = 'No items added yet. Add your first item above.';
+                cell.style.textAlign = 'center';
+                cell.style.color = '#666';
+                cell.style.padding = '20px';
+                return;
+            }
+
+            items.forEach(item => {
+                const row = costTable.insertRow();
+                
+                const nameCell = row.insertCell();
+                nameCell.textContent = item.name;
+                
+                const costCell = row.insertCell();
+                costCell.textContent = item.cost.toLocaleString() + ' MMK';
+                
+                const actionCell = row.insertCell();
+                const removeBtn = document.createElement('button');
+                removeBtn.textContent = 'Remove';
+                removeBtn.className = 'remove-btn';
+                removeBtn.onclick = () => removeItem(item.id);
+                actionCell.appendChild(removeBtn);
+            });
+        }
+
+        function updateTotal() {
+            let total = 0;
+            items.forEach(item => {
+                total += item.cost;
+            });
+            totalCostDisplay.textContent = total.toLocaleString();
+            return total;
+        }
+
+
+        function clearInputs() {
+            itemNameInput.value = '';
+            itemCostInput.value = '';
+            itemNameInput.focus();
+        }
+
+        addBtn.addEventListener('click', () => {
+            addItem(itemNameInput.value, itemCostInput.value);
+        });
+
+        itemCostInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                addItem(itemNameInput.value, itemCostInput.value);
+            }
+        });
+
+        compareBtn.addEventListener('click', () => {
+            const budget = Number(budgetInput.value);
+            const totalCost = updateTotal();
+
+            resultNote.classList.remove('ok', 'not-ok');
+
+            if (items.length === 0) {
+                resultNote.innerHTML = "Please add some cost items first.";
+                return;
+            }
+
+            if (!budget) {
+                resultNote.innerHTML = "Please enter your budget.";
+                return;
+            }
+
+            if (budget >= totalCost) {
+                const extra = budget - totalCost;
+                resultNote.classList.add('ok');
+                resultNote.innerHTML = `
+                    <strong>You have enough budget!</strong><br>
+                    You will still have <strong>${extra.toLocaleString()} MMK</strong> left.<br><br>
+                    Your project is fully doable with your current funds.
+                `;
+            } else {
+                const shortage = totalCost - budget;
+                resultNote.classList.add('not-ok');
+                resultNote.innerHTML = `
+                    <strong>You are short by ${shortage.toLocaleString()} MMK.</strong><br><br>
+                    Here are some ideas:<br>
+                    <ul>
+                        <li>Build the project in phases</li>
+                        <li>Ask the community for volunteer help</li>
+                        <li>Search for extra funding or sponsors</li>
+                    </ul>
+                `;
+            }
+        });
+
+        updateTable();
+    </script>
+</body>
+</html>

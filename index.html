@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+<link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <header class="top-bar">
+    <div class="logo"><img src="green space.png" alt="edusn" height="60px"></div>
+
+    <div class="buttons">
+      <div class="dropdown">
+        <span class="dropdown-btn btn">Supplier ▾</span>
+        <div class="dropdown-content">
+          <a href="supplier.html">Suppiler</a>
+          <a href="result.html">Result</a>
+          <a href="eslCost.html">Cost estimator</a>
+        </div>
+      </div>
+
+      <a href="loginPAGE.html" class="btn">Sign In</a>
+    </div>
+  </header>
+
+  <nav class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="survey.html">Survey</a>
+
+    <div class="dropdown">
+        <span class="dropdown-btn btn">Calculation ▾</span>
+        <div class="dropdown-content">
+          <a href="supplier.html">Suppiler</a>
+          <a href="result.html">Result</a>
+          <a href="eslCost.html">Cost estimator</a>
+        </div>
+      </div>
+
+    <input type="text" class="search-bar" placeholder="Search..." />
+  </nav>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="lll.jpg">
+  <div class="text">Adventure Awaits!</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="lily.jpg">
+  <div class="text">Where Dreams Take Flight!</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="yellow.jpg">
+  <div class="text">Find Yourself in the Wild!</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+
+<div class="content-wrapper">
+    <div class="left-image">
+        <img src="pgb (1).jpg" alt="Left Image">
+    </div>
+
+    <div class="right-text">
+        <h1>How park population become nearly extinct</h1>
+        <p>Park populations become nearly extinct primarily due to human activities which lead to major threats such as:</p>
+        <ul class="b">
+          <li>Habitat loss</li>
+          <li>Pollution</li>
+          <li>Climate changes</li>
+          <li>Human disturbance</li>
+        </ul>
+    </div>
+</div>
+<div class="section"  >
+  <h2 style="color:#2d5d3a; text-align:center; font-size:32px;">How can we revitalized our local park?</h2>
+  <div class="services" style="margin-top:30px;">
+    <div class="service-box" style="padding:30px;">
+      <h3 style="color:#2d5d3a;">Clean Up & Fix Up</h3>
+      <p>Picking up litter and fixing broken equipment makes the park safer, more pleasant, and encourages people to respect the space.</p>
+    </div>
+    <div class="service-box" style="padding:30px;">
+      <h3 style="color:#2d5d3a;">Greening the Park</h3>
+      <p>Greenery improves air quality, provides shade, attracts birds and butterflies, and makes the park visually appealing.</p>
+    </div>
+    <div class="service-box" style="padding:30px;">
+      <h3 style="color:#2d5d3a;">Better Facilities</h3>
+      <p>Benches give people a place to rest, bins reduce litter, signs provide guidance or education, and walking paths make the park more usable for everyone.</p>
+    </div>
+  </div>
+</div>
+<div class="help-btn" onclick="toggleHelp()">
+  ?
+</div>
+<div class="help-panel" id="helpPanel">
+  <h3>Need Help?</h3>
+
+  <div class="q-box">
+  <button class="q-header" onclick="toggleDropdown(this)">Why is our park important?</button>
+  <div class="q-content">
+    <p>Our park provides fresh air, protects wildlife, reduces heat, and offers a relaxing space for the community.</p>
+  </div>
+</div>
+
+<div class="q-box">
+  <button class="q-header" onclick="toggleDropdown(this)">What causes pollution in the park?</button>
+  <div class="q-content">
+    <p>Main sources include littering, plastic waste, smoke, and lack of proper trash bins or maintenance.</p>
+  </div>
+</div>
+
+<div class="q-box">
+  <button class="q-header" onclick="toggleDropdown(this)">How can students help improve the park?</button>
+  <div class="q-content">
+    <p>Students can participate in cleanups, awareness campaigns, planting projects, and reporting damaged areas.</p>
+  </div>
+</div>
+
+<div class="q-box">
+  <button class="q-header" onclick="toggleDropdown(this)">What activities can be added to the park?</button>
+  <div class="q-content">
+    <p>Walking paths, small playgrounds, bird-watching zones, fitness corners, and shaded sitting areas can improve the park.</p>
+  </div>
+</div>
+
+<div class="q-box">
+  <button class="q-header" onclick="toggleDropdown(this)">Who manages the park?</button>
+  <div class="q-content">
+    <p>The park is usually managed by local authorities, city development committees, and community volunteers.</p>
+  </div>
+</div>
+
+</div>
+
+<h2 style="text-align:center; color:#cf4036;">Proposed Solutions</h2>
+
+<div class="timeline">
+
+  <div class="timeline-item left">
+    <div class="timeline-dot-left"></div>
+    <div class="timeline-content">
+      <h3>Adding Recycling Bins</h3>
+      <p>Providing recycling bins helps visitors separate waste properly.
+         Different colored bins can be used for plastic, paper, and general trash, making it easier for everyone to understand.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item right">
+    <div class="timeline-dot-right"></div>
+    <div class="timeline-content">
+      <h3>Awareness Campaigns</h3>
+      <p>Awareness activities help people understand how their actions affect the environment.
+This includes posters, social media posts, school presentations, and community events that teach visitors the importance of reducing waste.</p>
+    </div>
+  </div>
+  <div class="timeline-item left">
+    <div class="timeline-dot-left"></div>
+    <div class="timeline-content">
+      <h3>Installing Signs with Rules</h3>
+      <p>Clear and visible signs remind visitors to follow park guidelines, such as “Do Not Litter,” “Recycle Here,” and “Protect the Plants.”</p>
+    </div>
+  </div>
+
+  <div class="timeline-item right">
+    <div class="timeline-dot-right"></div>
+    <div class="timeline-content">
+      <h3>Fixing Broken Facilities</h3>
+      <p>Repairing damaged benches, playground equipment, pathways, lamps, and trash bins makes the park safer and more comfortable.</p>
+    </div>
+  </div>
+</div>
+<section class="future-goals">
+<h2>Future Goals for the Park</h2>
+<p class="lead">Our goal is a clean, safe, and beautiful park that everyone can enjoy. Here are the main actions we want to take.</p>
+ 
+  <div class="goals-grid">
+<div class="goal-card">
+<div class="goal-icon">🌳</div>
+<div>
+<h4>More Greenery</h4>
+<p>Plant new trees and flowers, add grass and shady spots, and create a small student garden for learning and care.</p>
+</div>
+</div>
+ 
+    <div class="goal-card">
+<div class="goal-icon">🗑️</div>
+<div>
+<h4>Better Waste Management</h4>
+<p>Install more trash & recycling bins, add clear signs against littering, and organise monthly "Clean Park Week".</p>
+</div>
+</div>
+ 
+    <div class="goal-card">
+<div class="goal-icon">🐦</div>
+<div>
+<h4>Protect the ecosystem</h4>
+<p>Create bird-friendly zones, plant native species to attract wildlife, and keep water areas clean for animals.</p>
+</div>
+</div>
+ 
+    <div class="goal-card">
+<div class="goal-icon">👥</div>
+<div>
+<h4>Student Involvement</h4>
+<p>Invite students to join cleaning days, design eco-projects, and make recycled art displays each term.</p>
+</div>
+</div>
+ 
+    <div class="goal-card">
+<div class="goal-icon">🪑</div>
+<div>
+<h4>Safe & Friendly Spaces</h4>
+<p>Fix benches and paths, add seating areas and a quiet corner for reading or resting under the trees.</p>
+</div>
+</div>
+ 
+    <div class="goal-card">
+<div class="goal-icon">🎯</div>
+<div>
+<h4>Long-Term Goals</h4>
+<p>Build walking paths, add educational signs about plants and animals, and plan seasonal events to keep the community engaged.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="activities extra-section">
+  <h2>Activities for Visitors</h2>
+  <ul>
+    <li><strong>Nature Treasure Hunt:</strong> Find leaves, stones, and natural objects without taking them home.</li>
+    <li><strong>Art in the Park:</strong> Students draw or paint scenes of nature.</li>
+    <li><strong>Storytelling Corner:</strong> A shaded space for reading nature stories.</li>
+    <li><strong>Fitness Trail:</strong> Signs showing stretches and simple exercises.</li>
+  </ul>
+</section>
+
+
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Green Space</h3>
+        <p>The purpose of our project is to help revitalize our local park while promoting environmental conservation.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="about.html">Abous Us</a>
+        <a href="#">References</a>
+        <a href="https://edusn.co.uk/">Our School</a>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>635J Yoma Avenue Street, Yangon</p>
+        <p>+95793333550</p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2025 - 2026 Green Space All right Reserved
+    </div>
+  </footer>
+
+  <script>
+function toggleHelp() {
+  const panel = document.getElementById("helpPanel");
+  panel.style.display = panel.style.display === "block" ? "none" : "block";
+}
+
+function toggleDropdown(btn) {
+  let content = btn.nextElementSibling;
+  content.style.display = content.style.display === "block" ? "none" : "block";
+}
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+function animateOnScroll() {
+  const sections = document.querySelectorAll('.extra-section, .timeline-block, .goal-card');
+
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100) {
+      section.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Survey</title>
+<link rel="stylesheet" href="resu.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<header class="top-bar">
+  <div class="logo"><img src="green space.png" height="60px"></div>
+  <div class="buttons">
+    <div class="dropdown">
+      <span class="btn btn-danger dropdown-toggle">Supplier</span>
+      <div class="dropdown-content">
+        <a href="supplier.html">Supplier</a>
+        <a href="result.html">Result</a>
+        <a href="eslCost.html">Cost Estimator</a>
+      </div>
+
+       <a href="calculator.html" class="btn">Calculator</a>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="survey.html">Survey</a>
+  <a href="SignUp.html" class="nav-btn">Calculator</a>
+  <input type="text" class="search-bar" placeholder="Search...">
+</nav>
+
+<div class="main-section">
+
+  <div class="box">
+    <h2>Public Feedback Survey</h2>
+    <p class="text-muted">Help us improve our local park by sharing your preferences!</p>
+
+    <div class="p-3 my-3" style="background:#f2f2f2; border-radius:10px;">
+      <h5>How often do you visit the park?</h5>
+      <div class="option-group">
+        <button class="option-btn">Daily</button>
+        <button class="option-btn">Weekly</button>
+        <button class="option-btn">Monthly</button>
+        <button class="option-btn">Rarely</button>
+      </div>
+    </div>
+
+    <div class="p-3 my-3" style="background:#f2f2f2; border-radius:10px;">
+      <h5>How clean is the park?</h5>
+      <div class="option-group">
+        <button class="option-btn">Very Clean</button>
+        <button class="option-btn">Clean</button>
+        <button class="option-btn">Average</button>
+        <button class="option-btn">Dirty</button>
+      </div>
+    </div>
+
+    <div class="p-3 my-3" style="background:#f2f2f2; border-radius:10px;">
+      <h5>Do you feel safe in the park?</h5>
+      <div class="option-group">
+        <button class="option-btn">Yes</button>
+        <button class="option-btn">Sometimes</button>
+        <button class="option-btn">No</button>
+      </div>
+    </div>
+
+    <div class="p-3 my-3" style="background:#f2f2f2; border-radius:10px;">
+      <h5>Which improvement should be prioritized?</h5>
+      <div class="option-group">
+        <button class="option-btn">Better Playground</button>
+        <button class="option-btn">More Seating</button>
+        <button class="option-btn">More Trees</button>
+        <button class="option-btn">Walking Paths</button>
+        <button class="option-btn">Sports Area</button>
+      </div>
+    </div>
+
+    <div class="p-3 my-3" style="background:#f2f2f2; border-radius:10px;">
+      <h5>What improvements would you personally like to see?</h5>
+      <textarea class="form-control" rows="3"></textarea>
+    </div>
+
+    <button id="submitBtn" class="btn btn-success">Submit Your Feedback</button>
+    <div id="submitMessage" style="display:none; margin-top:10px; color:#2e7d32;">
+      ✔ Thank you! Your feedback has been submitted.
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Survey Result Chart</h2>
+
+    <label>Chart Title</label>
+    <input id="chartTitle" type="text" class="form-control" placeholder="e.g. Favourite Sports">
+  <br>
+     <label>X-Axis Label</label>
+    <input type="text" id="xAxis" class="textinput" placeholder="e.g., Sport Types">
+    <br><br>
+    <label>Y-Axis Label</label>
+    <input type="text" id="yAxis" class="textinput" placeholder="e.g., Number of Students">
+    <br>
+    <label class="mt-3">X Values (comma separated)</label>
+    <input id="xValues" type="text" class="form-control" placeholder="e.g. Football, Basketball">
+
+    <label class="mt-3">Frequencies</label>
+    <input id="freqValues" type="text" class="form-control" placeholder="e.g. 20, 10">
+
+    <button class="btn btn-primary mt-3" onclick="generateChart()">Generate Chart</button>
+
+    <canvas id="surveyChart" height="140"></canvas>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div>
+      <h3>Green Space</h3>
+      <p>The purpose of our project is to help revitalize our local park while promoting environmental conservation.</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="about.html">About Us</a>
+      <a href="#">References</a>
+      <a href="#">Our School</a>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>635J Yoma Avenue Street, Yangon</p>
+      <p>+95793333550</p>
+    </div>
+  </div>
+
+  <div class="copyright">
+    © 2025 Green Space
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll(".option-group").forEach(group => {
+  group.querySelectorAll(".option-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      group.querySelectorAll(".option-btn").forEach(b => b.classList.remove("selected"));
+      btn.classList.add("selected");
+    });
+  });
+});
+
+document.getElementById("submitBtn").addEventListener("click", () => {
+  document.getElementById("submitMessage").style.display = "block";
+});
+
+let barChart;
+function generateChart() {
+  const xData = document.getElementById("xValues").value.split(",").map(s => s.trim());
+   const xAxisLabel = document.getElementById("xAxis").value;
+    const yAxisLabel = document.getElementById("yAxis").value;
+  const freqData = document.getElementById("freqValues").value.split(",").map(Number);
+  const title = document.getElementById("chartTitle").value;
+
+  if (barChart) barChart.destroy();
+
+  const ctx = document.getElementById("surveyChart").getContext("2d");
+   barChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: xData,
+            datasets: [{
+                label: yAxisLabel,
+                data: freqData,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: title,
+                    font: { size: 18 }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: yAxisLabel
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: xAxisLabel
+                    }
+                }
+            }
+        }
+    });
+}
+</script>
+
+</body>
+</html>

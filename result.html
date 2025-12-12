@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Survey Result Bar Chart</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header class="top-bar">
+    <div class="logo"><img src="green space.png" alt="edusn" height="60px"></div>
+
+    <div class="buttons">
+      <div class="dropdown">
+        <span class="dropdown-btn btn">Supplier ▾</span>
+        <div class="dropdown-content">
+          <a href="supplier.html">Townships</a>
+          <a href="result.html">Result</a>
+          <a href="eslCost.html">Cost estimator</a>
+        </div>
+      </div>
+
+      <a href="calculator.html" class="btn">Calculator</a>
+    </div>
+  </header>
+  <nav class="nav-bar">
+  <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="survey.html">Survey</a>
+  <a href="SignUp.html" class="nav-btn">Sign In</a>
+  <input type="text" class="search-bar" placeholder="Search...">
+</nav>
+<br>
+<br>
+<div class="container">
+
+    <h2 style="margin-left: 150px;">Survey Result Bar Chart Generator</h2>
+
+    <label>Chart Title</label>
+    <input type="text" id="chartTitle" class="textinput" placeholder="e.g., Favourite Sports of Students">
+
+    <label>X-Axis Label</label>
+    <input type="text" id="xAxis" class="textinput" placeholder="e.g., Sport Types">
+
+    <label>Y-Axis Label</label>
+    <input type="text" id="yAxis" class="textinput" placeholder="e.g., Number of Students">
+
+    <label>X Values (separate with commas)</label>
+    <input type="text" id="xValues" class="textinput" placeholder="e.g., Football, Basketball, Volleyball, Badminton">
+
+    <label>Frequencies (match order of X values)</label>
+    <input type="text" id="freqValues" class="textinput" placeholder="e.g., 40, 25, 18, 30">
+
+    <button onclick="generateChart()">Generate Bar Chart</button>
+
+    <canvas id="surveyChart"></canvas>
+
+</div>
+<footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Green Space</h3>
+        <p>The purpose of our project is to help revitalize our local park while promoting environmental conservation</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="about.html">Abous Us</a>
+        <a href="#">References</a>
+        <a href="#">Our School</a>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>635J Yoma Avenue Street, Yangon</p>
+        <p>+95793333550</p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2025 EDUSN Kamaryut campus year-9
+    </div>
+  </footer>
+
+<script>
+let barChart;
+
+function generateChart() {
+    const title = document.getElementById("chartTitle").value;
+    const xAxisLabel = document.getElementById("xAxis").value;
+    const yAxisLabel = document.getElementById("yAxis").value;
+
+    const xData = document.getElementById("xValues").value.split(",").map(s => s.trim());
+    const freqData = document.getElementById("freqValues").value.split(",").map(Number);
+
+    if (barChart) barChart.destroy();
+
+    const ctx = document.getElementById("surveyChart").getContext("2d");
+
+    barChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: xData,
+            datasets: [{
+                label: yAxisLabel,
+                data: freqData,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: title,
+                    font: { size: 18 }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: yAxisLabel
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: xAxisLabel
+                    }
+                }
+            }
+        }
+    });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Supplier Page</title>
+<link rel="stylesheet" href="supplier.css">
+</head>
+<body>
+
+<header class="top-bar">
+        <div class="logo"><img src="green space.png" alt="edusn" height="60px"></div>
+        <div class="buttons">
+            <div class="dropdown">
+                <span class="dropdown-btn btn">Link Collection ▾</span>
+                <div class="dropdown-content">
+                    <a href="supplier.html">Supplier</a>
+                    <a href="result.html">Result</a>
+                    <a href="eslCost.html">Cost Estimator</a>
+                </div>
+            </div>
+            <a href="calculator.html" class="btn">Calculator</a>
+        </div>
+    </header>
+
+    <nav class="nav-bar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="survey.html">Survey</a>
+        <a href="SignUp.html" class="nav-btn">Sign In</a>
+        <input type="text" class="search-bar" placeholder="Search...">
+    </nav>
+
+<h1>Yangon Township Supplier List</h1>
+
+<div class="container" id="supplier-container"></div>
+
+<h2 class="best-title">Best Supplier in Each Township</h2>
+
+<div class="best-container">
+
+  <div class="best-card">
+    <h3>Kamayut</h3>
+    <p><b>Best Supplier:</b> Kamayut Supplier</p>
+    <p>✔ Affordable & reliable materials</p>
+  </div>
+
+  <div class="best-card">
+    <h3>Hlaing</h3>
+    <p><b>Best Supplier:</b> Hlaing Supplier</p>
+    <p>✔ Best for interior + exterior materials</p>
+  </div>
+
+  <div class="best-card">
+    <h3>Sanchaung</h3>
+    <p><b>Best Supplier:</b> Sanchaung Supplier</p>
+    <p>✔ Best decoration and accessories</p>
+  </div>
+
+  <div class="best-card">
+    <h3>Insein</h3>
+    <p><b>Best Supplier:</b> Insein Supplier</p>
+    <p>✔ Heavy-duty construction materials</p>
+  </div>
+
+  <div class="best-card">
+    <h3>Thingangyun</h3>
+    <p><b>Best Supplier:</b> Thingangyun Supplier</p>
+    <p>✔ Cheapest recycled materials</p>
+  </div>
+
+  <div class="best-card">
+    <h3>Tamwe</h3>
+    <p><b>Best Supplier:</b> Tamwe Supplier</p>
+    <p>✔ Best wood & construction tools</p>
+  </div>
+
+  <div class="best-card">
+    <h3>South Okkalapa</h3>
+    <p><b>Best Supplier:</b> South Okkalapa Supplier</p>
+    <p>✔ Gardening materials specialist</p>
+  </div>
+
+  <div class="best-card">
+    <h3>North Okkalapa</h3>
+    <p><b>Best Supplier:</b> North Okkalapa Supplier</p>
+    <p>✔ Best for electrical supplies</p>
+  </div>
+
+  <div class="best-card">
+    <h3>Ahlone</h3>
+    <p><b>Best Supplier:</b> Ahlone Supplier</p>
+    <p>✔ Heavy industrial materials</p>
+  </div>
+
+  <div class="best-card">
+    <h3>Kyauktada</h3>
+    <p><b>Best Supplier:</b> Kyauktada Supplier</p>
+    <p>✔ Premium interior decorations</p>
+  </div>
+
+  <div class="best-card">
+    <h3>Latha</h3>
+    <p><b>Best Supplier:</b> Latha Supplier</p>
+    <p>✔ Paint & hardware specialist</p>
+  </div>
+
+  <div class="best-card">
+    <h3>Pazundaung</h3>
+    <p><b>Best Supplier:</b> Pazundaung Supplier</p>
+    <p>✔ Electrical components street</p>
+  </div>
+
+  <div class="best-card">
+    <h3>Dagon</h3>
+    <p><b>Best Supplier:</b> Dagon Supplier</p>
+    <p>✔ Eco-friendly materials</p>
+  </div>
+
+  <div class="best-card">
+    <h3>Thaketa</h3>
+    <p><b>Best Supplier:</b> Thaketa Supplier</p>
+    <p>✔ Plastic & rubber materials</p>
+  </div>
+
+</div>
+<!-- ⭐⭐⭐ END OF ADDED SECTION ⭐⭐⭐ -->
+
+<footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Green Space</h3>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="about.html">About Us</a>
+        <a href="#">References</a>
+        <a href="#">Our School</a>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>635J Yoma Avenue Street, Yangon</p>
+        <p>+95793333550</p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2025 EDUSN Kamaryut campus year-9
+    </div>
+</footer>
+
+<script>
+const suppliers = [
+  { 
+    name: "Kamayut Supplier", 
+    image: "https://i.imgur.com/O0QKQYV.jpeg", 
+    desc: "Basic Construction Materials", 
+    location: "Bagaya Road (Near Hledan Center), Yangon",
+    materials: "Cement, Sand, Bricks, Gravel",
+    price: "MMK 1,200 – 25,000"
+  },
+
+  { 
+    name: "Hlaing Supplier", 
+    image: "https://i.imgur.com/bz4oP4M.jpeg", 
+    desc: "Interior + Exterior Materials",
+    location: "Parami Road, Hlaing Township (Opposite Parami Hospital)",
+    materials: "Wood Planks, Steel Bars, PVC Pipes",
+    price: "MMK 5,000 – 55,000"
+  },
+
+  { 
+    name: "Sanchaung Supplier", 
+    image: "https://i.imgur.com/zSXQ4Dm.jpeg", 
+    desc: "Decoration & Accessories", 
+    location: "Bargayar Road (Near Marketplace by City Mart), Sanchaung",
+    materials: "Lighting, Floor Tiles, Wall Paint",
+    price: "MMK 3,000 – 80,000"
+  },
+
+  { 
+    name: "Insein Supplier", 
+    image: "https://i.imgur.com/QMzdYQp.jpeg", 
+    desc: "Heavy Duty Materials", 
+    location: "Insein Main Road (Near Insein Roundabout)",
+    materials: "Concrete Blocks, Rebar, Crushed Stone",
+    price: "MMK 10,000 – 110,000"
+  },
+
+  { 
+    name: "Thingangyun Supplier", 
+    image: "https://i.imgur.com/uqe0p6d.jpeg", 
+    desc: "Recycled & Basic Materials", 
+    location: "Waizayandar Road (Near Yuzana Plaza), Thingangyun",
+    materials: "Recycled Materials, Plastic Bottles, Cardboard",
+    price: "MMK 300 – 15,000"
+  },
+
+  { 
+    name: "Tamwe Supplier", 
+    image: "https://i.imgur.com/jZgHaS1.jpeg", 
+    desc: "Wood & Construction", 
+    location: "Tamwe Main Road (Behind Yuzana Plaza Wood Market)",
+    materials: "Timber, Plywood, Nails, Hinges",
+    price: "MMK 2,000 – 48,000"
+  },
+
+  { 
+    name: "South Okkalapa Supplier", 
+    image: "https://i.imgur.com/xcN8ftk.jpeg", 
+    desc: "Gardening Materials", 
+    location: "Thudhamma Road (Near Dagon Center 3 Warehouse), South Okkalapa",
+    materials: "Gardening Soil, Fertilizers, Flower Pots",
+    price: "MMK 1,500 – 35,000"
+  },
+
+  { 
+    name: "North Okkalapa Supplier", 
+    image: "https://i.imgur.com/LquUuvZ.jpeg", 
+    desc: "Metal & Electrical", 
+    location: "Aung Zay Ya Road (Electrical Components Street), North Okkalapa",
+    materials: "Electrical Wires, Circuit Breakers, Metal Sheets",
+    price: "MMK 6,000 – 90,000"
+  },
+
+  { 
+    name: "Ahlone Supplier", 
+    image: "https://i.imgur.com/2JpNwqQ.jpeg", 
+    desc: "Industrial & Heavy Supplies", 
+    location: "Strand Road (Near Ahlone Jetty), Ahlone",
+    materials: "Industrial Ropes, Steel Plates, Heavy-duty Bolts",
+    price: "MMK 12,000 – 160,000"
+  },
+
+  { 
+    name: "Kyauktada Supplier", 
+    image: "https://i.imgur.com/1pUPJq9.jpeg", 
+    desc: "Premium Interior Supplies", 
+    location: "Sule Pagoda Road (Near Sule Square), Kyauktada",
+    materials: "Ceramic Tiles, LED Lights, Wallpapers",
+    price: "MMK 10,000 – 220,000"
+  },
+
+  { 
+    name: "Latha Supplier", 
+    image: "https://i.imgur.com/9ol8Nmb.jpeg", 
+    desc: "Paint & Hardware", 
+    location: "Maha Bandula Road (Near Junction Mawtin), Latha",
+    materials: "Paint, Rollers, Brushes, Small Tools",
+    price: "MMK 2,000 – 65,000"
+  },
+
+  { 
+    name: "Pazundaung Supplier", 
+    image: "https://i.imgur.com/jEymC0R.jpeg", 
+    desc: "Electrical Components", 
+    location: "Pazundaung Main Road (Electric & Hardware Street)",
+    materials: "Switches, Bulbs, Wiring Tools",
+    price: "MMK 1,200 – 30,000"
+  },
+
+  { 
+    name: "Dagon Supplier", 
+    image: "https://i.imgur.com/v1nO0AS.jpeg", 
+    desc: "Eco-Friendly Materials", 
+    location: "Bo Aung Kyaw Street, Dagon Township",
+    materials: "Bamboo, Reclaimed Wood, Eco-Paint",
+    price: "MMK 3,000 – 55,000"
+  },
+
+  { 
+    name: "Thaketa Supplier", 
+    image: "https://i.imgur.com/yNLxbrZ.jpeg", 
+    desc: "Plastic & Rubber Materials", 
+    location: "Ayarwaddy Road (Near Industrial Zone Entrance), Thaketa",
+    materials: "PVC Pipes, Rubber Mats, Plastic Sheets",
+    price: "MMK 900 – 45,000"
+  }
+];
+
+const container = document.getElementById("supplier-container");
+
+suppliers.forEach(s => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <img src="${s.image}">
+    <div class="info">
+      <div class="title">${s.name}</div>
+      <p>${s.desc}</p>
+    </div>
+
+    <div class="hidden-details">
+      <p><b>Location:</b> ${s.location}</p>
+      <p><b>Materials:</b> ${s.materials}</p>
+      <p><b>Price Range:</b> ${s.price}</p>
+    </div>
+  `;
+  container.appendChild(card);
+});
+</script>
+
+</body>
+</html>

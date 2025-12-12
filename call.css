@@ -1,0 +1,157 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg,#dff2e8,#b9e4ff);
+  margin:0;
+  padding:0;
+}
+.top-bar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+  background:white;
+  border-bottom:1px solid #eee;
+}
+
+.logo {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo img { height:70px; }
+.logo-text { font-size:26px; font-weight:700; color:#103f67; }
+
+.buttons {
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+
+.btn, .red-btn {
+  background:#cf4036;
+  color:white;
+  padding:10px 20px;
+  border-radius:25px;
+  text-decoration:none;
+  font-weight:bold;
+  cursor:pointer;
+  display:inline-block;
+  white-space:nowrap;
+}
+
+.dropdown { position:relative; }
+.dropdown-btn { cursor:pointer; }
+.dropdown-content {
+  display:none;
+  position:absolute;
+  background:#264a7a;
+  padding:12px;
+  border-radius:8px;
+  top:45px;
+  width:150px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.15);
+}
+.dropdown-content a {
+  display:block;
+  padding:6px 0;
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+}
+.dropdown-content a:hover { color:#ffbfb9; }
+.dropdown:hover .dropdown-content { display:block; }
+
+
+.container {
+  max-width:1000px;
+  margin:40px auto;
+  background:#fff;
+  padding:30px 40px;
+  border-radius:20px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.15);
+}
+
+h2 {
+  text-align:center;
+  font-size:30px;
+  font-weight:700;
+  color:#2b6777;
+  margin-top: 30px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:50px;
+  margin-top:10px;
+}
+label { font-weight:600; color:#1a3c45; }
+input, select {
+  padding:12px;
+  width:100%;
+  margin-top:6px;
+  border-radius:10px;
+  border:1px solid #c9d6df;
+  background:#f7fbfc;
+  font-size:15px;
+}
+button {
+  padding:14px;
+  width:100%;
+  background:#52ab98;
+  color:white;
+  border:none;
+  border-radius: 10px;
+  font-size:17px;
+  cursor:pointer;
+  margin-top:20px;
+}
+
+.results, .comparison {
+  margin-top:30px;
+  padding:20px;
+  background:#e9fff8;
+  border-left:5px solid #52ab98;
+  border-radius:15px;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+}
+table, th, td { border:1px solid #bcdcd2; }
+th, td { padding:10px; text-align:center; }
+
+.download-btn { background:#2b6777; color:white; padding:12px; display:inline-block; margin-top:15px; border-radius:10px; cursor:pointer; text-align:center; }
+
+.footer {
+  background:#1f355a;
+  color:white;
+  padding:40px 40px 25px;
+  margin-top:50px;
+}
+.footer-content {
+  display:flex;
+  justify-content:space-around;
+  gap:60px;
+  flex-wrap:wrap;
+  text-align:left;
+}
+.footer-section h3,h4 { margin-bottom:6px; }
+.footer-section p { margin:3px 0; }
+.footer-content a {
+  text-decoration:none;
+  color:#ddd;
+  display:block;
+  margin:4px 0;
+}
+.footer-content a:hover { color:white; }
+.copyright {
+  margin-top:20px;
+  text-align:center;
+  font-size:14px;
+  opacity:0.8;
+}
+.muted { color:#4b6b70; font-size:14px; }

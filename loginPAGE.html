@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <header class="top-bar">
+    <div class="logo"><img src="green space.png" alt="edusn" height="60px"></div>
+
+    <div class="buttons">
+      <div class="dropdown">
+        <span class="dropdown-btn btn">Supplier ▾</span>
+        <div class="dropdown-content">
+          <a href="supplier.html">Suppiler</a>
+          <a href="result.html">Result</a>
+          <a href="eslCost.html">Cost estimator</a>
+        </div>
+      </div>
+
+      <a href="loginPAGE.html" class="btn">Sign In</a>
+    </div>
+  </header>
+
+  <nav class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="survey.html">Survey</a>
+
+    <div class="dropdown">
+        <span class="dropdown-btn btn">Calculation ▾</span>
+        <div class="dropdown-content">
+          <a href="supplier.html">Suppiler</a>
+          <a href="result.html">Result</a>
+          <a href="eslCost.html">Cost estimator</a>
+        </div>
+      </div>
+
+    <input type="text" class="search-bar" placeholder="Search..." />
+  </nav>
+  <br>
+  <div class="map">
+
+    <div class="map-box">
+     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d683.1148661510726!2d96.13122325020127!3d16.833919656081175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1951ea335aaeb%3A0xe9b73fc2ad483ba4!2sEDUSN%20Digital%20School%2C%20Yangon%20Campus!5e0!3m2!1sen!2smm!4v1765248036760!5m2!1sen!2smm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="login-box">
+      <h2>Login</h2>
+      <div id="errorMsg" class="error"></div>
+
+      <input type="text" id="username" placeholder="Username">
+      
+      <div class="password-container">
+        <input type="password" id="password" placeholder="Password">
+        <span id="togglePwd" class="toggle-pwd">Show</span>
+      </div>
+
+<div style="margin-left: 55px;" class="finger-login" id="loginBtn" onclick="login()">
+  <span class="label">LOGIN</span>
+
+  <svg class="fp" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="35" fill="none" stroke-width="4" />
+  </svg>
+
+  <svg class="ok" viewBox="0 0 100 100">
+    <path d="M30 55 L45 70 L72 35" fill="none" stroke-width="8" />
+  </svg>
+
+  <svg class="wrong" viewBox="0 0 100 100">
+    <path d="M30 30 L70 70 M70 30 L30 70" stroke-width="8" fill="none"/>
+  </svg>
+</div>
+
+
+
+      <div class="footer-text">
+        Don't have an account? <a href="SignUp.html">Sign Up</a>
+      </div>
+    </div>
+
+  </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Green Space</h3>
+                <p>The purpose of our project is to help revitalize our local park while promoting environmental conservation</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="about us.css">About Us</a>
+                <a href="#">References</a>
+                <a href="#">Our School</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>635J Yoma Avenue Street, Yangon</p>
+                <p>+95793333550</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 EDUSN Kamaryut campus year-9
+        </div>
+    </footer>
+
+<script>
+  const toggle = document.getElementById("togglePwd");
+  const pwd = document.getElementById("password");
+  const errorMsg = document.getElementById("errorMsg");
+  const btn = document.getElementById("loginBtn");
+
+  toggle.addEventListener("click", () => {
+    pwd.type = pwd.type === "password" ? "text" : "password";
+    toggle.textContent = pwd.type === "password" ? "Show" : "Hide";
+  });
+
+  window.onload = () => {
+    const savedUser = localStorage.getItem("savedUsername");
+    if (savedUser) {
+      document.getElementById("username").value = savedUser;
+    }
+  };
+
+  function login() {
+    const username = document.getElementById("username").value;
+    const password = pwd.value;
+
+    const savedUser = localStorage.getItem("savedUsername");
+    const savedPass = localStorage.getItem("savedPassword");
+
+    btn.classList.remove("active", "success", "error");
+    errorMsg.textContent = "";
+    btn.classList.add("active");
+
+    setTimeout(() => {
+      if (username === savedUser && password === savedPass) {
+        btn.classList.add("success");
+
+        localStorage.setItem("savedUsername", username);
+
+        setTimeout(() => {
+          btn.classList.remove("success");
+          alert("Login successful!");
+        }, 300);
+
+      } else {
+        btn.classList.add("error");
+        errorMsg.textContent = "Incorrect username or password.";
+
+        setTimeout(() => {
+          btn.classList.remove("error");
+        }, 800);
+      }
+    }, 400);
+  }
+</script>
+
+
+</body>
+</html>

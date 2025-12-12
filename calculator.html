@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Park Facility Cost Calculator</title>
+<link rel="stylesheet" href="call.css">
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="logo"><img src="green space.png" alt="edusn"><span class="logo-text"></span></div>
+  <div class="buttons">
+    <div class="dropdown">
+      <span class="dropdown-btn btn">Link Collection ▾</span>
+      <div class="dropdown-content">
+        <a href="supplier.html">Supplier</a>
+        <a href="result.html">Result</a>
+        <a href="eslCost.html">Cost Estimator</a>
+      </div>
+    </div>
+    <a href="calculator.html" class="btn">Calculator</a>
+  </div>
+</header>
+<h2>Park Facility Cost Calculator</h2>
+
+  <div class="container">
+      <h3>Select Park Facilities</h3>
+      <div class="facility-group">
+  <label><input type="checkbox" class="facility" value="benches" onclick="autoFill()"> Benches</label>
+
+  <label><input type="checkbox" class="facility" value="playground" onclick="autoFill()"> Playground</label>
+
+  <label><input type="checkbox" class="facility" value="lane" onclick="autoFill()"> Lane</label>
+
+  <label><input type="checkbox" class="facility" value="lighting" onclick="autoFill()"> Lighting</label>
+
+  <label><input type="checkbox" class="facility" value="shelter" onclick="autoFill()"> Shelter</label>
+</div>
+
+    <div class="grid">
+      <div>
+        <label>Length (m)</label>
+        <input type="number" id="length" placeholder="Enter length (m)" min="0" step="0.01" />
+      </div>
+      <div>
+        <label>Width (m)</label>
+        <input type="number" id="width" placeholder="Enter width (m)" min="0" step="0.01" />
+      </div>
+      <div>
+        <label>Quantity Needed</label>
+        <input type="number" id="quantity" placeholder="Enter quantity (e.g. number of panels)" min="1" value="1" />
+      </div>
+      <div>
+        <label>Material Type</label>
+        <select id="material">
+          <option value="concrete">Concrete</option>
+          <option value="wood">Wood</option>
+          <option value="steel">Steel</option>
+          <option value="turf">Grass Turf</option>
+          <option value="brick">Brick</option>
+          <option value="sand">Sand</option>
+          <option value="cement">Cement Bags</option>
+          <option value="pvc">PVC Pipes</option>
+          <option value="aluminium">Aluminium Sheets</option>
+          <option value="glass">Glass Panels</option>
+          <option value="rubber">Playground Rubber Mat</option>
+          <option value="stone">Decorative Stone</option>
+          <option value="paint">Paint</option>
+        </select>
+      </div>
+      <div>
+        <label>Township (Yangon)</label>
+        <select id="township">
+          <option value="Hlaing">Hlaing</option>
+          <option value="Insein">Insein</option>
+          <option value="Sanchaung">Sanchaung</option>
+          <option value="Kamayut">Kamayut</option>
+          <option value="Mayangone">Mayangone</option>
+          <option value="South Okkalapa">South Okkalapa</option>
+          <option value="North Okkalapa">North Okkalapa</option>
+          <option value="Thingangyun">Thingangyun</option>
+          <option value="Yankin">Yankin</option>
+          <option value="Bahan">Bahan</option>
+          <option value="Tamwe">Tamwe</option>
+          <option value="Kyimyindaing">Kyimyindaing</option>
+          <option value="Latha">Latha</option>
+          <option value="Lanmadaw">Lanmadaw</option>
+          <option value="Pazundaung">Pazundaung</option>
+          <option value="Pabedan">Pabedan</option>
+          <option value="Dagon">Dagon</option>
+          <option value="ALL">All townships (show all suppliers)</option>
+        </select>
+      </div>
+      <div>
+        <label>Unit (area applies)</label>
+        <select id="unit">
+          <option value="sqm">m² (square metres)</option>
+          <option value="sqft">ft² (square feet)</option>
+        </select>
+      </div>
+    </div>
+
+    <button onclick="calculateCost()">Calculate Total Cost</button>
+
+    <div id="results" class="results" style="display:none;"></div>
+    <div id="comparison" class="comparison" style="display:none;"></div>
+    <div id="downloadSection" style="display:none;"></div>
+
+    <h3 style="margin-top:30px;color:#2b6777;">Additional Revitalization Costs</h3>
+    <div class="grid">
+      <div>
+        <label>Labor Cost (per day, MMK)</label>
+        <input type="number" id="labor" placeholder="MMK per day" min="0" />
+      </div>
+      <div>
+        <label>Number of Labor Days</label>
+        <input type="number" id="laborDays" placeholder="Days" min="0" />
+      </div>
+      <div>
+        <label>Transportation Cost (MMK)</label>
+        <input type="number" id="transport" placeholder="MMK" min="0" />
+      </div>
+      <div>
+        <label>Equipment Rental (MMK)</label>
+        <input type="number" id="equipment" placeholder="MMK" min="0" />
+      </div>
+    </div>
+
+  </div>
+  <footer class="footer">
+    <div class="footer-content">
+       <div class="footer-section">
+        <h3>Green Space</h3>
+        <p>The purpose of our project is to help revitalize our local park while promoting environmental conservation.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="#">Abous Us</a>
+        <a href="#">References</a>
+        <a href="#">Our School</a>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>635J Yoma Avenue Street, Yangon</p>
+        <p>+95793333550</p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2025 EDUSN Kamaryut campus year-9
+    </div>
+  </footer>
+  <script>
+function autoFill() {
+    const sizes = {
+        benches: { length: 1.8, width: 0.5 },     
+        playground: { length: 15, width: 10 },      
+        lane: { length: 10, width: 1.2 },          
+        lighting: { length: 0.5, width: 0.5 },      
+        shelter: { length: 4, width: 3 }            
+    };
+
+    const checked = document.querySelectorAll(".facility:checked");
+
+    if (checked.length === 0) {
+        document.getElementById("length").value = "";
+        document.getElementById("width").value = "";
+        return;
+    }
+
+    const lastSelected = checked[checked.length - 1].value;
+    const size = sizes[lastSelected];
+
+    if (size) {
+        document.getElementById("length").value = size.length;
+        document.getElementById("width").value = size.width;
+    }
+}
+
+
+    const supplierPrices = {
+      concrete: {
+        "Hlaing": [ { name: "Shwe Concrete Hlaing", price: 12000 } ],
+        "Insein": [ { name: "Insein Concrete Supply", price: 12500 } ],
+        "Sanchaung": [ { name: "Sanchaung Stone & Concrete", price: 14000 } ],
+        "Kamayut": [ { name: "Kamayut Concrete Depot", price: 13200 } ],
+        "Mayangone": [ { name: "Mayangone Concrete Yard", price: 12800 } ],
+        "South Okkalapa": [ { name: "SO Concrete Shop", price: 13100 } ],
+        "North Okkalapa": [ { name: "NO Concrete Traders", price: 12900 } ],
+        "Thingangyun": [ { name: "TG Concrete Supply", price: 13300 } ],
+        "Yankin": [ { name: "Yankin Concrete Point", price: 13700 } ],
+        "Bahan": [ { name: "Bahan Concrete", price: 14200 } ],
+        "Tamwe": [ { name: "Tamwe Concrete", price: 13500 } ],
+        "Kyimyindaing": [ { name: "Kyimyindaing Concrete", price: 12700 } ],
+        "Latha": [ { name: "Latha Concrete", price: 13900 } ],
+        "Lanmadaw": [ { name: "Lanmadaw Builders", price: 14100 } ],
+        "Pazundaung": [ { name: "Pazundaung Concrete", price: 13800 } ],
+        "Pabedan": [ { name: "Pabedan Construction", price: 13400 } ],
+        "Dagon": [ { name: "Dagon Concrete Center", price: 13600 } ]
+      },
+      wood: {
+        "Hlaing": [ { name: "Hlaing Timber Center", price: 8500 } ],
+        "Insein": [ { name: "Insein Lumber Yard", price: 9000 } ],
+        "Sanchaung": [ { name: "Sanchaung Wood Plaza", price: 9200 } ],
+        "Kamayut": [ { name: "Kamayut Wood Depot", price: 8800 } ],
+        "Mayangone": [ { name: "Mayangone Timber Shop", price: 8950 } ],
+        "South Okkalapa": [ { name: "SO Timber", price: 9100 } ],
+        "North Okkalapa": [ { name: "NO Timber", price: 9050 } ],
+        "Thingangyun": [ { name: "TG Wood Market", price: 9150 } ],
+        "Yankin": [ { name: "Yankin Timber", price: 9400 } ],
+        "Bahan": [ { name: "Bahan Wood Center", price: 9650 } ],
+        "Tamwe": [ { name: "Tamwe Wood", price: 9300 } ],
+        "Kyimyindaing": [ { name: "Kyimyindaing Wood", price: 8900 } ],
+        "Latha": [ { name: "Latha Wood", price: 9700 } ],
+        "Lanmadaw": [ { name: "Lanmadaw Timber", price: 9500 } ],
+        "Pazundaung": [ { name: "Pazundaung Wood Point", price: 9600 } ],
+        "Pabedan": [ { name: "Pabedan Timber", price: 9450 } ],
+        "Dagon": [ { name: "Dagon Timber Store", price: 9550 } ]
+      },
+      steel: {
+        "Hlaing": [ { name: "Hlaing Steel Co.", price: 15000 } ],
+        "Insein": [ { name: "Insein Steel Market", price: 14500 } ],
+        "Sanchaung": [ { name: "Sanchaung Steel Point", price: 15800 } ],
+        "Kamayut": [ { name: "Kamayut Steel Depot", price: 15200 } ],
+        "Mayangone": [ { name: "Mayangone Steel Shop", price: 14900 } ],
+        "South Okkalapa": [ { name: "SO Steel Center", price: 15100 } ],
+        "North Okkalapa": [ { name: "NO Steel Traders", price: 14800 } ],
+        "Thingangyun": [ { name: "TG Steel", price: 15400 } ],
+        "Yankin": [ { name: "Yankin Steel Supply", price: 16000 } ],
+        "Bahan": [ { name: "Bahan Steel", price: 16200 } ],
+        "Tamwe": [ { name: "Tamwe Steel", price: 15700 } ],
+        "Kyimyindaing": [ { name: "Kyimyindaing Steel", price: 14600 } ],
+        "Latha": [ { name: "Latha Steel", price: 16500 } ],
+        "Lanmadaw": [ { name: "Lanmadaw Metal", price: 15900 } ],
+        "Pazundaung": [ { name: "Pazundaung Steel", price: 16100 } ],
+        "Pabedan": [ { name: "Pabedan Steel", price: 15500 } ],
+        "Dagon": [ { name: "Dagon Metal Center", price: 15800 } ]
+      },
+      brick:{ "Hlaing":[{name:"Hlaing Brick Depot",price:300}]} ,
+      sand:{ "Hlaing":[{name:"Hlaing Sand Shop",price:120}]} ,
+      cement:{ "Hlaing":[{name:"Hlaing Cement",price:6500}]} ,
+      pvc:{ "Hlaing":[{name:"Hlaing PVC Store",price:900}]} ,
+      aluminium:{ "Hlaing":[{name:"Hlaing Aluminium",price:18000}]} ,
+      glass:{ "Hlaing":[{name:"Hlaing Glass",price:22000}]} ,
+      rubber:{ "Hlaing":[{name:"Hlaing Rubber Mat",price:8000}]} ,
+      stone:{ "Hlaing":[{name:"Hlaing Stone Shop",price:5000}]} ,
+      paint:{ "Hlaing":[{name:"Hlaing Paint",price:9500}]} 
+    };
+
+    function toMMK(n){ return 'MMK ' + (Number(n) || 0).toLocaleString(); }
+
+    function calculateCost(){
+      const L = parseFloat(document.getElementById('length').value) || 0;
+      const W = parseFloat(document.getElementById('width').value) || 0;
+      const qty = parseFloat(document.getElementById('quantity').value) || 1;
+      const material = document.getElementById('material').value;
+      const township = document.getElementById('township').value;
+      const unit = document.getElementById('unit').value;
+
+      let area = L * W; 
+      if(unit === 'sqft'){
+
+        area = area * 0.092903;
+      }
+
+      if(area <= 0){
+        alert('Please enter valid Length and Width (greater than 0) or select a facility to autofill sizes.');
+        return;
+      }
+
+      let supplierList = [];
+      const materialData = supplierPrices[material];
+      if(!materialData){
+        alert('No supplier data for material: ' + material);
+        return;
+      }
+
+      if(township === 'ALL'){
+        Object.keys(materialData).forEach(t => {
+          const arr = materialData[t];
+          if(Array.isArray(arr)) supplierList = supplierList.concat(arr);
+        });
+      } else {
+        const arr = materialData[township];
+        if(Array.isArray(arr)) supplierList = arr.slice();
+        else {
+          Object.keys(materialData).forEach(t => {
+            const a = materialData[t];
+            if(Array.isArray(a)) supplierList = supplierList.concat(a);
+          });
+        }
+      }
+      if(!Array.isArray(supplierList) || supplierList.length === 0){
+        document.getElementById('results').style.display = 'block';
+        document.getElementById('results').innerHTML = '<div class=\"muted\">No suppliers found for the selected material/township.</div>';
+        document.getElementById('comparison').style.display = 'none';
+        return;
+      }
+
+      const supplierTotals = supplierList.map(s => {
+        const total = (Number(s.price) || 0) * area * qty; 
+        return { name: s.name, unitPrice: s.price, total };
+      });
+
+      let cheapest = supplierTotals[0];
+      supplierTotals.forEach(s => { if(s.total < cheapest.total) cheapest = s; });
+
+      const labor = (parseFloat(document.getElementById('labor').value) || 0) * (parseFloat(document.getElementById('laborDays').value) || 0);
+      const transport = parseFloat(document.getElementById('transport').value) || 0;
+      const equipment = parseFloat(document.getElementById('equipment').value) || 0;
+      const totalExtra = labor + transport + equipment;
+
+      document.getElementById('results').style.display = 'block';
+      document.getElementById('results').innerHTML = `
+        <div><strong>Area:</strong> ${area.toFixed(2)} m²</div>
+        <div><strong>Quantity:</strong> ${qty}</div>
+        <div><strong>Material:</strong> ${material}</div>
+        <div><strong>Township:</strong> ${township}</div>
+        <hr>
+        <div><strong>Labor Cost:</strong> ${toMMK(labor)}</div>
+        <div><strong>Transport:</strong> ${toMMK(transport)}</div>
+        <div><strong>Equipment Rental:</strong> ${toMMK(equipment)}</div>
+        <div style="margin-top:8px;"><strong>Total Extra Costs:</strong> ${toMMK(totalExtra)}</div>
+      `;
+
+      let tableRows = supplierTotals.map(s => `<tr><td>${s.name}</td><td>${toMMK(s.unitPrice)}</td><td>${toMMK(s.total)}</td></tr>`).join('');
+
+      const grandTotal = cheapest.total + totalExtra;
+
+      document.getElementById('comparison').style.display = 'block';
+      document.getElementById('comparison').innerHTML = `
+        <h3 style="margin-top:15px; color:#1a535c;">Cheapest Supplier: ${cheapest.name} — ${toMMK(cheapest.total)}</h3>
+        <h3 style="margin-top:8px; color:#1a535c;">Grand Total (Materials + Extras): ${toMMK(grandTotal)}</h3>
+      `;
+    }
+</script>
+
+</body>
+</html>

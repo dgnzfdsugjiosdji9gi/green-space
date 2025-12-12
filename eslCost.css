@@ -1,0 +1,327 @@
+    body { 
+      margin:0; 
+      font-family: Arial, sans-serif; 
+      background:#f9f9f9;
+    }
+          .top-bar {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 40px;
+      background:white;
+      border-bottom:1px solid #eee;
+    }
+  .logo {
+      font-size:22px;
+      font-weight:bold;
+      color:#1f355a;
+    }
+
+    .buttons {
+      display:flex;
+      gap:20px;
+      align-items:center;
+    }
+ .btn {
+      background:#cf4036;
+      color:white;
+      padding:10px 20px;
+      border-radius:25px;
+      text-decoration:none;
+      font-weight:bold;
+      cursor:pointer;
+      display:inline-block;
+      white-space:nowrap;
+    }
+
+    .dropdown { position:relative; }
+
+    .dropdown-btn { 
+      display:inline-block;
+      cursor:pointer;
+    }
+
+    .dropdown-content {
+      display:none;
+      position:absolute;
+      background:#264a7a;
+      padding:12px;
+      border-radius:8px;
+      top:45px;
+      width:150px;
+      box-shadow:0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    .dropdown-content a {
+      display:block;
+      padding:6px 0;
+      color:white;
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    .dropdown-content a:hover {
+      color:#ffbfb9;
+    }
+
+    .dropdown:hover .dropdown-content { 
+      display:block;
+    }
+
+.nav-bar {
+  display: flex;
+  justify-content: center;   
+  align-items: center;
+  gap: 25px;
+  padding: 15px 0;
+  background: #ffffff;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: black;
+  font-size: 17px;
+  padding: 8px 12px;
+}
+
+.nav-bar .nav-btn {
+  background-color: #cf4036;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+ .search-bar {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 240px;
+}
+
+      .box {
+      background: #e8f7e8;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      margin-top: 10px;
+    }
+    
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      background: rgb(56, 142, 83);
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .note {
+      background: #e0d9c5;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .note.ok {
+  background: #d4f8d4; 
+  border-left: 6px solid #4baf4e;
+}
+
+.note.not-ok {
+  background: #f8d4d4; 
+  border-left: 6px solid #e85242;
+}
+/* Add these styles to your existing CSS */
+
+.add-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.add-item input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+    min-width: 150px;
+}
+
+#itemName {
+    flex: 2;
+}
+
+#itemCost {
+    flex: 1;
+}
+
+#addBtn {
+    width: 66px;
+    height: 50px;
+    padding: 15px 6px;
+    background: #53b157;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#addBtn:hover {
+    background: #45a049;
+}
+
+#costTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#costTable th {
+    background: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+#costTable td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#costTable tr:hover {
+    background-color: #f9f9f9;
+}
+
+.remove-btn {
+    padding: 5px 10px;
+    background: #cf4036;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.remove-btn:hover {
+    background: #b33730;
+}
+
+#totalCost {
+    color: #2E7D32;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.box {
+    background: #e8f7e8;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #c8e6c9;
+}
+
+.note.ok {
+    background: #e8f7e8;
+    border-left: 4px solid #4CAF50;
+}
+
+.note.not-ok {
+    background: #f8e8e8;
+    border-left: 4px solid #cf4036;
+}
+
+.note {
+    background: #fff3cd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+#budgetInput {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+#compareBtn {
+    padding: 10px 20px;
+    background: #2E7D32;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#compareBtn:hover {
+    background: #1B5E20;
+}
+
+
+     .footer {
+      background:#1f355a;
+      color:white;
+      padding:40px 40px 25px;
+      margin-top:180px;
+    }
+    .footer-content {
+      display:flex;
+      justify-content:space-around;
+      gap:60px;
+      flex-wrap:wrap;
+      text-align:left;
+    }
+ 
+    .footer-section h3,
+    .footer-section h4 {
+      margin-bottom:6px;
+    }
+ 
+    .footer-section p {
+      margin:3px 0;
+    }
+ 
+    .footer-content a {
+      text-decoration:none;
+      color:#ddd;
+      display:block;
+      margin:4px 0;
+    }
+ 
+    .footer-content a:hover {
+      color:white;
+    }
+ 
+    .copyright {
+      margin-top:20px;
+      text-align:center;
+      font-size:14px;
+      opacity:0.8;
+    }

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Supplier Page</title>
+<link rel="stylesheet" href="supplier.css">
+</head>
+
+<body>
+
+<header class="top-bar">
+  <img src="green space.png" height="60">
+
+  <div class="buttons">
+    <div class="dropdown">
+      <span class="btn">Supplier ▾</span>
+      <div class="dropdown-content">
+        <a href="#">All Suppliers</a>
+        <div class="sub-dropdown">
+          <span style="color:white;cursor:pointer;">Township ▸</span>
+          <div class="sub-content">
+            <p>Hlaing</p><p>Tamwe</p><p>Kamaryut</p>
+            <p>Latha</p><p>North Okkalapa</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="calculator.html" class="btn">Calculator</a>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="survey.html">Survey</a>
+  <a href="" class="nav-btn">Sign In</a>
+  <input class="search-bar" placeholder="Search material (wood, cement)">
+</nav>
+
+<h1>Yangon Township Supplier List</h1>
+
+<div class="container" id="supplier-container"></div>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div>
+      <h3>Green Space</h3>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="#">About Us</a>
+      <a href="#">References</a>
+      <a href="#">Our School</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>635J Yoma Avenue Street, Yangon</p>
+      <p>+95 793 333 550</p>
+    </div>
+  </div>
+  <div class="copyright">
+    © 2025 EDUSN Kamaryut campus year-9
+  </div>
+</footer>
+
+<script>
+const suppliers = [
+ {name:"Sein Gay Har Hardware", image:"unnamed.jpg", location:"Hledan Centre", materials:"cement paint tools steel", price:"MMK 2k-150k"},
+ {name:"Bayint Naung Market", image:"unnamed (1).jpg", location:"Hlaing", materials:"wood steel pvc cement", price:"MMK 1k-500k"},
+ {name:"ACE Hardware", image:"unnamed (2).jpg", location:"Myanmar Plaza", materials:"tools lighting paint", price:"MMK 5k-300k"},
+ {name:"Capital Hypermarket", image:"unnamed (3).jpg", location:"Yankin", materials:"cement bricks lighting", price:"MMK 3k-200k"},
+ {name:"U Tun Tin Timber", image:"unnamed (4).jpg", location:"Tamwe", materials:"timber plywood wood", price:"MMK 10k-400k"},
+ {name:"Shwe Taung Materials", image:"unnamed (5).jpg", location:"Hlaing", materials:"cement concrete gypsum", price:"MMK 5k-180k"},
+ {name:"Myanmar Electrical", image:"unnamed (6).jpg", location:"North Okkalapa", materials:"wires switches breakers", price:"MMK 2k-120k"},
+ {name:"Zay Cho Hardware", image:"unnamed (7).jpg", location:"Latha", materials:"paint tools bolts", price:"MMK 1k-90k"},
+ {name:"Olympic Hardware", image:"unnamed (8).jpg", location:"Dagon", materials:"power tools safety", price:"MMK 8k-350k"},
+ {name:"Super One Building", image:"unnamed (9).jpg", location:"South Okkalapa", materials:"tiles lighting paint", price:"MMK 3k-250k"}
+];
+
+const c = document.getElementById("supplier-container");
+const search = document.querySelector(".search-bar");
+
+function render(list){
+  c.innerHTML="";
+  list.forEach(s=>{
+    c.innerHTML+=`
+    <div class="card">
+      <img src="${s.image}">
+      <div class="info"><div class="title">${s.name}</div></div>
+      <div class="hidden-details">
+        <p><b>Location:</b> ${s.location}</p>
+        <p><b>Materials:</b> ${s.materials}</p>
+        <p><b>Price:</b> ${s.price}</p>
+      </div>
+    </div>`;
+  });
+}
+
+function loader(){
+  c.innerHTML=`<div class="loader-wrap">
+    <div class="loader"></div>
+    <div class="loader-text">Searching suppliers...</div>
+  </div>`;
+}
+
+render(suppliers);
+
+search.addEventListener("input",()=>{
+  const q = search.value.toLowerCase();
+  loader();
+  setTimeout(()=>{
+    render(suppliers.filter(s =>
+      (s.materials+s.name+s.location).toLowerCase().includes(q)
+    ));
+  },3000);
+});
+</script>
+
+</body>
+</html>
+
