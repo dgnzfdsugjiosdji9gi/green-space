@@ -223,17 +223,16 @@ This makes the project safer and easier to complete.</p>
         function clearInputs() {
             itemNameInput.value = '';
             itemCostInput.value = '';
-            itemReasonInput.value = '';
             itemNameInput.focus();
         }
 
         addBtn.addEventListener('click', () => {
-            addItem(itemNameInput.value, itemCostInput.value, itemReasonInput.value);
+            addItem(itemNameInput.value, itemCostInput.value);
         });
 
         itemCostInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                addItem(itemNameInput.value, itemCostInput.value, itemReasonInput.value);
+                addItem(itemNameInput.value, itemCostInput.value);
             }
         });
 
