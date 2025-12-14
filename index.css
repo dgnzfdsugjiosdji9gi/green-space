@@ -175,7 +175,10 @@
       white-space:nowrap;
     }
 
-    .dropdown { position:relative; }
+    .dropdown {
+      position:relative; 
+      z-index: 2000px;
+    }
 
     .dropdown-btn { 
       display:inline-block;
@@ -240,6 +243,7 @@
       outline:none;
       font-size:14px;
       background-color: #eee;
+      margin-left: 170px;
     }
     .content {
       padding:40px;
@@ -1134,3 +1138,4 @@ ul.b {list-style-type: disc;}
     padding: 40px 20px;
   }
 }
+
