@@ -483,35 +483,6 @@ ul.b {list-style-type: disc;}
     position: relative;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   }
-.extra-section {
-  background: linear-gradient(135deg, #f0fcf7, #d6f1e0);
-  padding: 60px 30px;
-  margin: 60px auto;
-  max-width: 1100px;
-  border-radius: 25px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  position: relative;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease;
-}
-
-/* Add subtle decorative curves */
-.extra-section::before {
-  content: '';
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: rgba(207,64,54,0.1);
-  border-radius: 50%;
-  top: -100px;
-  right: -100px;
-  z-index
-  .timeline-content h3 {
-    margin-top: 0;
-    color: #cf4036;
-  }
 .future-goals {
 
   padding: 60px 40px;
@@ -646,3 +617,4 @@ ul.b {list-style-type: disc;}
 
 
  
+
