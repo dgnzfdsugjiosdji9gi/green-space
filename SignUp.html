@@ -58,7 +58,7 @@
       <span id="toggle2" class="toggle-pwd">Show</span>
     </div>
 
-    <div class="finger-login" id="registerBtn" onclick="registerUser()">
+    <div style="margin-left: 55px;" class="finger-login" id="registerBtn" onclick="registerUser()">
       <span class="label">REGISTER</span>
 
       <svg class="fp" viewBox="0 0 100 100">
@@ -88,7 +88,7 @@
         </div>
         <div class="footer-section">
             <h4>Quick Links</h4>
-            <a href="about us.css">About Us</a>
+            <a href="about.html">About Us</a>
             <a href="#">References</a>
             <a href="#">Our School</a>
         </div>
@@ -122,39 +122,6 @@
   };
 
   function registerUser() {
-    const user = document.getElementById("newUser").value;
-    const email = document.getElementById("newEmail").value;
-    const pass = p1.value;
-    const cpass = p2.value;
-
-    btn.classList.remove("active", "success", "error");
-    msg.textContent = "";
-
-    btn.classList.add("active");
-
-    setTimeout(() => {
-      if (pass !== cpass || pass === "" || email === "" || user === "") {
-        btn.classList.add("error");
-        msg.textContent = "Please fill correctly. Passwords must match.";
-
-        setTimeout(() => btn.classList.remove("error"), 900);
-      } else {
-        btn.classList.add("success");
-
-        setTimeout(() => {
-          btn.classList.remove("success");
-          alert("Account created successfully!");
-          window.location.href = "Login.html";
-        }, 900);
-      }
-    }, 400);
-  }
-
-  btn.addEventListener("animationend", () => {
-    btn.classList.remove("active");
-  });
-
-  function registerUser() {
   const user = document.getElementById("newUser").value;
   const email = document.getElementById("newEmail").value;
   const pass = p1.value;
@@ -173,7 +140,6 @@
       setTimeout(() => btn.classList.remove("error"), 900);
     } else {
 
-      // SAVE USER TO LOCAL STORAGE
       localStorage.setItem("savedUsername", user);
       localStorage.setItem("savedPassword", pass);
 
@@ -182,9 +148,7 @@
       setTimeout(() => {
         btn.classList.remove("success");
         alert("Account created successfully!");
-
-        // go to login
-        window.location.href = "loginPAGE.html";
+        window.location.href = "index.html";
       }, 900);
     }
   }, 400);
