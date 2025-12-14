@@ -546,8 +546,6 @@ ul.b {list-style-type: disc;}
   font-size: 14px;
   line-height: 1.5;
 }
- 
-@media (max-width: 800px) {
   .goals-grid {
     grid-template-columns: 1fr;
   }
@@ -556,5 +554,6 @@ ul.b {list-style-type: disc;}
   }
 
  
+
 
 
