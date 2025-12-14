@@ -44,6 +44,7 @@
     .dropdown-content {
       display:none;
       position:absolute;
+      background:#264a7a;
       padding:12px;
       border-radius:8px;
       top:45px;
@@ -67,42 +68,47 @@
       display:block;
     }
 
-.nav-bar {
-  display: flex;
-  justify-content: center;   
-  align-items: center;
-  gap: 25px;
-  padding: 15px 0px;
-  background: #ffffff;
-}
 
-.nav-bar a {
-  text-decoration: none;
-  color: black;
-  font-size: 17px;
-  padding: 8px 12px;
-}
+    .nav-bar {
+      padding:12px 40px;
+      display:flex;
+      gap:30px;
+      justify-content:center;
+      align-items:center;
+    }
 
-.nav-bar .nav-btn {
-  background-color: #cf4036;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 8px;
-}
+    .nav-bar a { 
+      color: black; 
+      text-decoration:none; 
+      font-size:16px; 
+    }
 
- .search-bar {
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 240px;
-}
+    .nav-bar .nav-btn {
+      background:#cf4036;
+      padding:8px 18px;
+      border-radius:20px; 
+      text-decoration:none;
+      color:white;
+      font-weight:bold;
+    }
+
+    .search-bar {
+      padding:6px 12px; 
+      border-radius:20px; 
+      padding: 5px 10px;
+      width: 200px;
+      border:none; 
+      outline:none;
+      font-size:14px;
+      background-color: #eee;
+    }
     .content {
       padding:40px;
       max-width:900px;
       margin:auto;
       text-align:center;
     }
-    .carousel-item img {
+        .carousel-item img {
   height: 500px; 
   object-fit: cover;  
 }
@@ -463,6 +469,13 @@ button:hover {
 
 .error {
   color: rgb(169, 17, 17);
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.success-msg {
+  color: green;
   font-size: 14px;
   margin-bottom: 10px;
   text-align: center;
