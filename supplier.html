@@ -5,7 +5,6 @@
 <title>Supplier Page</title>
 <link rel="stylesheet" href="supplier.css">
 </head>
-
 <body>
 
 <header class="top-bar">
@@ -26,15 +25,15 @@
       </div>
     </div>
 
-    <a href="calculator.html" class="btn">Calculator</a>
+    <a href="#" class="btn">Calculator</a>
   </div>
 </header>
 
 <nav class="nav-bar">
-  <a href="index.html">Home</a>
-  <a href="about.html">About Us</a>
-  <a href="survey.html">Survey</a>
-  <a href="" class="nav-btn">Sign In</a>
+  <a href="#">Home</a>
+  <a href="#">About Us</a>
+  <a href="#">Survey</a>
+  <a href="#" class="nav-btn">Sign In</a>
   <input class="search-bar" placeholder="Search material (wood, cement)">
 </nav>
 
@@ -92,6 +91,7 @@ function render(list){
         <p><b>Location:</b> ${s.location}</p>
         <p><b>Materials:</b> ${s.materials}</p>
         <p><b>Price:</b> ${s.price}</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.location)}" target="_blank" class="see-btn">See More</a>
       </div>
     </div>`;
   });
@@ -113,10 +113,9 @@ search.addEventListener("input",()=>{
     render(suppliers.filter(s =>
       (s.materials+s.name+s.location).toLowerCase().includes(q)
     ));
-  },3000);
+  },2500);
 });
 </script>
 
 </body>
 </html>
-
