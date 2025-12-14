@@ -484,30 +484,30 @@ ul.b {list-style-type: disc;}
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   }
 .extra-section {
-  background: #f5fdf7;
-  padding: 50px 20px;
-  margin: 40px auto;
+  background: linear-gradient(135deg, #f0fcf7, #d6f1e0);
+  padding: 60px 30px;
+  margin: 60px auto;
   max-width: 1100px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  opacity: 0;             /* For animation */
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
   transform: translateY(50px);
   transition: all 1s ease;
 }
 
-.extra-section h2 {
-  color: #1f355a;
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 28px;
-}
-
-.extra-section ul {
-  list-style-type: disc;
-  padding-left: 40px;
-  line-height: 1.6;
-  color: #2d5d3a;
-}
+/* Add subtle decorative curves */
+.extra-section::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(207,64,54,0.1);
+  border-radius: 50%;
+  top: -100px;
+  right: -100px;
+  z-index
   .timeline-content h3 {
     margin-top: 0;
     color: #cf4036;
@@ -626,25 +626,6 @@ ul.b {list-style-type: disc;}
   line-height: 1.5;
 
 }
- /* Extra Section Styling */
-.extra-section {
-  background: #f5fdf7;
-  padding: 50px 20px;
-  margin: 40px auto;
-  max-width: 1100px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  opacity: 0;             /* For animation */
-  transform: translateY(50px);
-  transition: all 1s ease;
-}
-
-.extra-section h2 {
-  color: #1f355a;
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 28px;
-}
 
 
 @media (max-width: 800px) {
@@ -662,5 +643,6 @@ ul.b {list-style-type: disc;}
   }
 
 }
+
 
  
