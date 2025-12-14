@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="top-bar">
-        <div class="logo"><img src="green space.png" alt="edusn" height="60px"></div>
+        <div class="logo"><img src="greenSP.png" alt="edusn" height="60px"></div>
         <div class="buttons">
             <div class="dropdown">
                 <span class="dropdown-btn btn">Link Collection ▾</span>
@@ -30,11 +30,24 @@
         <input type="text" class="search-bar" placeholder="Search...">
     </nav>
 <br><br><br><br><br>
+
+
     <div class="container">
-        <h2>Cost Estimation Planner</h2>
+       <div class="title-hero">
+            <h2>Cost Estimation Planner</h2>
+            <p>Plan your project costs clearly and confidently</p>
+       </div>
+
+     
 
         <div class="box">
             <strong>Estimated Total Cost: <span id="totalCost">0</span> MMK</strong>
+            <div class="progress-wrap">
+                <div class="progress-bar">
+                    <div id="progressFill"></div>
+                </div>
+                <small id="progressText">0% of budget used</small>
+            </div>
             <p>Add your cost items:</p>
             
             <div class="add-item">
@@ -48,26 +61,42 @@
                     <tr>
                         <th>Item</th>
                         <th>Cost (MMK)</th>
+                        <th>Reason</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Items will be added here -->
+                    <!-- Items here -->
                 </tbody>
             </table>
             
-            <p style="font-size: 14px; color: #666; margin-top: 10px; margin-left: 77px;">
-                Start by adding items above. The total will update automatically.
+            <p style="font-size: 14px; color: #666; margin-top: 10px; margin-left: 125px;">
+                Start by adding items above. The total will update.
             </p>
         </div>
 
-        <label>Your Available Budget</label>
+        <label> Your Available Budget</label>
         <input type="number" id="budgetInput" placeholder="Enter your budget" min="0">
         <button id="compareBtn">Compare with Estimate</button>
 
         <div class="note" id="resultNote">
         Your budget will appear here! 
         </div>
+          <div class="help-box">
+         <h3>How's this Cost Estimatation work?</h3>
+         <p class="help-short">List every item and its price. This helps your plan and ask for the right money.</p>
+         <ul class="help-list">
+           <li><strong>listing:</strong> list every item and its price</li>
+           <li><strong>Calculation:</strong> calculate the total cost automatically</li>
+           <li><strong>Budgeting:</strong> check if our budget is enough</li>
+           <li><strong>Money Safe:</strong> avoid spending too much money</li>
+           <li><strong>plaing:</strong> plan the project step by step</li>
+         </ul>
+         <p class="help-tip"><strong>Tip:</strong> If your budget is less then your item price, we prepear a <strong>DONATE</strong> Page for you.</p>
+         <p>We use a Cost Estimation Planner to plan our money.
+It helps us know how much we need and how much we can spend.
+This makes the project safer and easier to complete.</p>
+       </div>
     </div>
 
     <footer class="footer">
@@ -78,7 +107,7 @@
             </div>
             <div class="footer-section">
                 <h4>Quick Links</h4>
-                <a href="about us.css">About Us</a>
+                <a href="about.html">About Us</a>
                 <a href="#">References</a>
                 <a href="#">Our School</a>
             </div>
@@ -108,7 +137,7 @@
         let items = [];
 
       
-        function addItem(name, cost) {
+        function addItem(name, cost, reason) {
             if (!name || !cost) {
                 alert('Please enter both item name and cost');
                 return;
@@ -117,7 +146,8 @@
             const item = {
                 name: name,
                 cost: Number(cost),
-                id: Date.now() 
+                reason: reason || '',
+                id: Date.now()
             };
 
             items.push(item);
@@ -139,8 +169,9 @@
             if (items.length === 0) {
                 const row = costTable.insertRow();
                 const cell = row.insertCell();
-                cell.colSpan = 3;
-                cell.textContent = 'No items added yet. Add your first item above.';
+                cell.colSpan = 4;
+                cell.innerHTML = "No items yet<br><small>Add your first cost above</small>";
+                cell.style.fontSize = "15px";
                 cell.style.textAlign = 'center';
                 cell.style.color = '#666';
                 cell.style.padding = '20px';
@@ -149,13 +180,16 @@
 
             items.forEach(item => {
                 const row = costTable.insertRow();
-                
+
                 const nameCell = row.insertCell();
                 nameCell.textContent = item.name;
-                
+
                 const costCell = row.insertCell();
                 costCell.textContent = item.cost.toLocaleString() + ' MMK';
-                
+
+                const reasonCell = row.insertCell();
+                reasonCell.textContent = item.reason;
+
                 const actionCell = row.insertCell();
                 const removeBtn = document.createElement('button');
                 removeBtn.textContent = 'Remove';
@@ -166,28 +200,40 @@
         }
 
         function updateTotal() {
-            let total = 0;
-            items.forEach(item => {
-                total += item.cost;
-            });
-            totalCostDisplay.textContent = total.toLocaleString();
+            let total = items.reduce((sum, item) => sum + item.cost, 0);
+            animateNumber(totalCostDisplay, total);
             return total;
+        }
+
+        function animateNumber(el, to) {
+            let start = Number(el.textContent.replace(/,/g, '')) || 0;
+            let startTime = null;
+
+            function step(t) {
+                if (!startTime) startTime = t;
+                let progress = Math.min((t - startTime) / 400, 1);
+                let value = Math.floor(start + (to - start) * progress);
+                el.textContent = value.toLocaleString();
+                if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
         }
 
 
         function clearInputs() {
             itemNameInput.value = '';
             itemCostInput.value = '';
+            itemReasonInput.value = '';
             itemNameInput.focus();
         }
 
         addBtn.addEventListener('click', () => {
-            addItem(itemNameInput.value, itemCostInput.value);
+            addItem(itemNameInput.value, itemCostInput.value, itemReasonInput.value);
         });
 
         itemCostInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                addItem(itemNameInput.value, itemCostInput.value);
+                addItem(itemNameInput.value, itemCostInput.value, itemReasonInput.value);
             }
         });
 
@@ -228,6 +274,17 @@
                     </ul>
                 `;
             }
+
+            const percent = (totalCost / budget) * 100;
+            const fill = document.getElementById('progressFill');
+            const text = document.getElementById('progressText');
+
+            fill.style.width = Math.min(percent, 100) + "%";
+            text.textContent = Math.round(percent) + "% of budget used";
+
+            if (percent < 70) fill.style.background = "#4CAF50";
+            else if (percent < 100) fill.style.background = "#FBC02D";
+            else fill.style.background = "#E53935";
         });
 
         updateTable();
