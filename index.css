@@ -67,7 +67,6 @@ body {
 
 .dropdown {
   position: relative;
-  z-index: 2000px;
 }
 
 .dropdown-btn {
@@ -84,6 +83,7 @@ body {
   top: 45px;
   width: 150px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    z-index: 2000px;
 }
 
 .dropdown-content a {
@@ -922,4 +922,5 @@ ul.b {
     right: 10px;
   }
 }
+
 
