@@ -820,6 +820,10 @@ ul.b {
   .future-goals {
     padding: 30px 15px;
   }
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 /* Small mobile responsiveness */
