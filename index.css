@@ -67,6 +67,7 @@ body {
 
 .dropdown {
   position: relative;
+        z-index: 2000px;
 }
 
 .dropdown-btn {
@@ -92,6 +93,7 @@ body {
   color: white;
   text-decoration: none;
   font-size: 14px;
+        z-index: 2000px;
 }
 
 .dropdown-content a:hover {
@@ -922,5 +924,6 @@ ul.b {
     right: 10px;
   }
 }
+
 
 
