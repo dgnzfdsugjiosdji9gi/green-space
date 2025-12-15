@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - GreenHands Park Revitalization</title>
+
+    <!-- Bootstrap -->
+    <link href="Donate%20-%20GreenHands%20Park%20Revitalization_files/bootstrap.min.css" rel="stylesheet">
+    <script src="Donate%20-%20GreenHands%20Park%20Revitalization_files/bootstrap.bundle.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="Donate%20-%20GreenHands%20Park%20Revitalization_files/font-awesome.min.css">
+
+    <link rel="stylesheet" href="Donate%20-%20GreenHands%20Park%20Revitalization_files/Donate.css">
+    <link rel="shortcut icon" href="Donate%20-%20GreenHands%20Park%20Revitalization_files/Park%20Logo.png" type="image/x-icon">
+    <link href="Donate%20-%20GreenHands%20Park%20Revitalization_files/aos.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://kphyu12345.github.io/GreenHands/index.html">
+            <img src="Donate%20-%20GreenHands%20Park%20Revitalization_files/Park%20Logo.png" alt="GreenHands Logo" width="60" class="rounded-pill">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="https://kphyu12345.github.io/GreenHands/index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://kphyu12345.github.io/GreenHands/about%20the%20park.html">About the Park</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Revitalization Plan</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="https://kphyu12345.github.io/GreenHands/update.html">Progress Updates</a></li>
+                        <li><a class="dropdown-item active" href="https://kphyu12345.github.io/GreenHands/Donate.html">Donate</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="https://kphyu12345.github.io/GreenHands/Contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ================= PROGRESS SECTION ================= -->
+<div class="update-section">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-4" style="font-family: 'Times New Roman', serif;">Park Revitalization Progress</h2>
+        <p class="text-center lead mb-4" style="font-family: 'Times New Roman', serif;">Support the transformation of your community park</p>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h4 class="mb-3" style="font-family: 'Times New Roman', serif;">Overall Completion</h4>
+                <div class="progressbar">
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="45" id="progressBar" style="width: 45%;">45% Complete</div>
+                </div>
+                <p class="text-center mt-2 small text-muted">Your donation helps us reach 100%!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= DONATE SECTION ================= -->
+<div class="donate py-5">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+                <div class="donate-left">
+                    <p class="donate-title mb-3">We need wild plants and fungi to survive. Now, they need us too.</p>
+                    <p class="donate-subtitle mb-4">Please donate today to restore Yangon's green spaces.</p>
+                    <div class="underline mb-4"></div>
+
+                    <h6 class="mt-4 mb-3 fw-bold">How much would you like to give?</h6>
+
+                    <div class="amount-buttons mb-4" id="amountButtonsContainer">
+                        <button type="button" class="amount-btn mb-2 me-2">25000 MMK</button>
+                        <button type="button" class="amount-btn mb-2 me-2">55000 MMK</button>
+                        <button type="button" class="amount-btn mb-2 me-2">95000 MMK</button>
+                        <button type="button" class="amount-btn mb-2 me-2">100000 MMK</button>
+                        <button type="button" class="amount-btn mb-2 me-2">150000 MMK</button>
+                        <button type="button" class="amount-btn mb-2 me-2">20000 MMK</button>
+                        <button type="button" class="amount-btn mb-2 me-2">250000 MMK</button>
+                        <button type="button" class="amount-btn mb-2" id="otherBtn">Other</button>
+                    <input type="number" placeholder="Enter amount (MMK)" class="form-control mt-2" style="display: none;"></div>
+
+                    <div id="amountImageBox" class="mt-3">
+                        <img id="amountImage" src="Donate%20-%20GreenHands%20Park%20Revitalization_files/donate10.jpg" class="img-fluid rounded" style="display:none;">
+                    </div>
+
+                    <div class="form-container">
+                        <form id="donationForm">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Full Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="name" required="">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" name="email" required="">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Phone <span class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" name="phone" required="">
+                            </div>
+
+                            <button type="submit" id="donateBtn" class="btn btn-success w-100 fw-bold">
+                                <i class="fa fa-heart me-2"></i>Donate Now
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="donate-image">
+                    <img src="Donate%20-%20GreenHands%20Park%20Revitalization_files/plant%20photo.jpg" alt="Lush green park revitalization" class="img-fluid rounded-4 w-100" style="height: 500px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+    <footer class="mt-auto">
+        <div class="container py-5">
+            <div class="row text-center text-md-start g-4">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h4 class="fw-bold mb-3">Contact Us</h4>
+                    <p class="mb-2"><i class="fa fa-envelope me-2"></i>GreenHands124@gmail.com</p>
+                    <p class="mb-2"><i class="fa fa-phone me-2"></i>09747368483</p>
+                    <p class="mb-4"><i class="fa fa-map-marker me-2"></i>Yangon</p>
+                    
+                    <div class="social-icons">
+                        <a href="#" class="fa fa-facebook me-2"></a>
+                        <a href="#" class="fa fa-twitter me-2"></a>
+                        <a href="#" class="fa fa-google me-2"></a>
+                        <a href="#" class="fa fa-youtube"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4 Quick-links">
+                    <h4 class="fw-bold mb-3">Quick Links</h4>
+                    <p><a href="https://kphyu12345.github.io/GreenHands/index.html" class="text-white text-decoration-none">Home</a></p>
+                    <p><a href="https://kphyu12345.github.io/GreenHands/about%20the%20park.html" class="text-white text-decoration-none">About the Park</a></p>
+                    <p><a href="https://kphyu12345.github.io/GreenHands/update.html" class="text-white text-decoration-none">Progress Updates</a></p>
+                    <p><a href="https://kphyu12345.github.io/GreenHands/Donate.html" class="text-white text-decoration-none fw-bold">Donate</a></p>
+                    <p><a href="https://kphyu12345.github.io/GreenHands/Contact.html" class="text-white text-decoration-none">Contact Us</a></p>
+                </div>
+
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <h4 class="fw-bold mb-3">About GreenHands</h4>
+                    <p class="lh-lg">
+                        We aim to revitalize parks across Myanmar by inspiring collective action through
+                        donations, volunteer efforts, and community involvement
+                    </p>
+                </div>
+            </div>
+
+            <div class="copyright text-center pt-4 mt-4 border-top">
+                <p>© 2025 GreenHands. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+const amountButtons = document.querySelectorAll(".amount-btn");
+let selectedAmount = null;
+
+let otherInput = document.createElement("input");
+otherInput.type = "number";
+otherInput.placeholder = "Enter amount (MMK)";
+otherInput.classList.add("form-control", "mt-2");
+otherInput.style.display = "none";
+document.querySelector(".amount-buttons").appendChild(otherInput);
+
+const amountImage = document.getElementById("amountImage");
+const imageBox = document.getElementById("amountImageBox");
+
+let progressBar = document.getElementById("progressBar");
+let currentProgress = 45;
+
+amountButtons.forEach(btn => {
+    btn.addEventListener("click", function () {
+        amountButtons.forEach(b => b.classList.remove("active"));
+        this.classList.add("active");
+
+        let value = this.innerText.trim();
+
+        if (value === "Other") {
+            otherInput.style.display = "block";
+            selectedAmount = null;
+            amountImage.src = "donate10.jpg"; // Default image for other
+        } else {
+            otherInput.style.display = "none";
+            selectedAmount = value;
+
+            // Update image based on donation amount
+            if (value === "25000 MMK") amountImage.src = "Bin.jpg";
+            if (value === "55000 MMK") amountImage.src = "Toliet.jpg";
+            if (value === "95000 MMK") amountImage.src = "seating.jpg";
+            if (value === "100000 MMK") amountImage.src = "shelter.jpg";
+            if (value === "150000 MMK") amountImage.src = "playground.jpg";
+            if (value === "20000 MMK") amountImage.src = "pathway.jpg";
+            if (value === "250000 MMK") amountImage.src = "seating with shelter.jpg";
+        }
+
+        imageBox.style.display = "block";
+        amountImage.style.display = "block";
+    });
+});
+
+document.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    if (otherInput.style.display === "block") {
+        selectedAmount = otherInput.value + " MMK";
+    }
+
+    if (!selectedAmount) {
+        alert("Please select a donation amount.");
+        return;
+    }
+
+    let amountNumber = parseInt(selectedAmount.replace("MMK", "").trim().replace(/,/g, ''));
+
+    let addedPercentage = (amountNumber / 10000) * 2;
+    currentProgress += addedPercentage;
+
+    if (currentProgress > 100) currentProgress = 100;
+
+    progressBar.innerText = Math.ceil(currentProgress) + "% Complete";
+    progressBar.style.width = currentProgress + "% Complete";
+    progressBar.setAttribute('aria-valuenow', currentProgress);
+
+    // Get donor info
+    const name = document.querySelector('input[name="name"]').value;
+    alert("Thank you for donating " + selectedAmount + "!\nPark progress: " + Math.ceil(currentProgress) + "%");
+    
+    // Reset form
+    this.reset();
+    amountButtons.forEach(b => b.classList.remove("active"));
+    otherInput.style.display = "none";
+    imageBox.style.display = "none";
+    selectedAmount = null;
+});
+AOS.init({
+        duration: 1000,
+        once: false // animations repeat on scroll
+        });
+</script>
+
+<script src="Donate%20-%20GreenHands%20Park%20Revitalization_files/aos.js"></script>
+
+
+
+</body></html>
