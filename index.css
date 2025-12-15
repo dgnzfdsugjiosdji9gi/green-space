@@ -67,6 +67,7 @@ body {
 
 .dropdown {
   position: relative;
+  z-index: 2000px;
 }
 
 .dropdown-btn {
@@ -921,3 +922,4 @@ ul.b {
     right: 10px;
   }
 }
+
